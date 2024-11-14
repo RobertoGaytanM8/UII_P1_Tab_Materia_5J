@@ -1,0 +1,29 @@
+{% extends "base.html"%}
+
+{% block cuerpo%}
+<div class="row">
+<div class="col-md-4 offset-md-4">
+    <!-- La terjeta card-->
+    <div class="card">
+        <div class="card-body">
+        <form action="/editarMateria/" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+            <input type="text" id="txtcodigo" name="txtcodigo" class="form-control" value="{{mismaterias.codigo}}" minLenght="7" maxlenght="7" readonly required>
+            </div>
+            <div class="form-group py-3">
+            <input type="text" id="txtnombre" name="txtnombre" class="form-control" value="{{mismaterias.nombre}}" maxlenght="100" required>
+            </div>
+            <div class="form-group py-2">
+            <input type="text" id="numcredito" name="numcredito" class="form-control" value="{{mismaterias.creditos}}" min="1" max="2" required>
+            </div>
+            <div class="form-group py-2">
+            <button  type="submit" class="btn btn-primary" >Guardar</button>
+            </div>
+
+        </form>
+        </div>
+        </div>
+</div>
+</div>    
+{%endblock%}
